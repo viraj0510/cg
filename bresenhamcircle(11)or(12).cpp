@@ -81,12 +81,6 @@ void bresenhams_circle(int xc,int yc,int radius){
 void keyboard(unsigned char key,int x,int y){
   int r=70;
   switch(key){
- case 's':
-     glClearColor(1.0,1.0,1.0,1.0);
-     glClear(GL_COLOR_BUFFER_BIT);
-     bresenhams_circle(xc,yc,50);
-     break;
-
  case 'c':
     glClearColor(1.0,1.0,1.0,1.0);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -104,34 +98,7 @@ void keyboard(unsigned char key,int x,int y){
      bresenhams_circle(xc-r,yc,r);
      break;
 
-
- case 'b':
-    glClearColor(1.0,1.0,1.0,1.0);
-     glClear(GL_COLOR_BUFFER_BIT);
-     bresenhams_circle(xc,yc,r);
-     bresenhams_circle(xc+2*r,yc,r);
-     bresenhams_circle(xc,yc+2*r,r);
-     bresenhams_circle(xc,yc-2*r,r);
-     bresenhams_circle(xc-2*r,yc,r);
-     break;
-
-case 'q':
-glClearColor(1.0, 1.0, 1.0, 1.0);
-glClear(GL_COLOR_BUFFER_BIT);
-bresenhams_circle(xc,yc,r);
-bresenhams_circle(xc+r+r/1.5,yc,r/1.5);
-bresenhams_circle(xc-r-r/1.5,yc,r/1.5);
-bresenhams_circle(xc,yc+r+r/1.5,r/1.5);
-bresenhams_circle(xc,yc-r-r/1.5,r/1.5);
-bresenhams_circle(xc+r+r/5.2,yc+r+r/5.2,r/1.5);
-bresenhams_circle(xc+r+r/5.2,yc-r-r/5.2,r/1.5);
-bresenhams_circle(xc-r-r/5.2,yc+r+r/5.2,r/1.5);
-bresenhams_circle(xc-r-r/5.2,yc-r-r/5.2,r/1.5);
-break;
-
-
-
-    }
+ }
     glutPostRedisplay();
 
 }
@@ -159,11 +126,8 @@ int main(int argc,char** argv){
    glutCreateWindow("OpenGL-Bresenhams circle drawing algo");
    initialise();
    cout<<"\n-----------------------";
-   cout<<"\n s.Simple Circle";
    cout<<"\n c. Concentric circle";
    cout<<"\n a.Four intersecting circle";
-   cout<<"\n b.Four touching circle";
-   cout<<"q.eight touching circles";
    cout<<"\n----------------------";
    glutDisplayFunc(primitives);
    glutMainLoop();
