@@ -84,12 +84,6 @@ void myMouse(int button,int state,int x,int y){
         else if(ch==2){
             Dottedline(xst,yst,x,y);
         }
-        else if(ch==3){
-            Dashedline(xst,yst,x,y);
-        }
-        else if(ch==4){
-            Solidline(xst,yst,x,y);
-        }
         xst=x;
         yst=y;
     }
@@ -117,17 +111,6 @@ void keyboard(unsigned char key,int x,int y){
      ch=2;
      glutMouseFunc(myMouse);
     break;
-
-  case 'D':
-      ch=3;
-      glutMouseFunc(myMouse);
-    break;
-
-  case 'S':
-     ch=4;
-     glutMouseFunc(myMouse);
-     break;
-
   }
   glutPostRedisplay();
 }
