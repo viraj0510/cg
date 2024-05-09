@@ -38,32 +38,43 @@ void SimpleLine(float x1, float y1, float x2, float y2)
     }
     glFlush();
 }
-void DottedLine(float x1, float y1, float x2, float y2)
-{
-    float step;
-    float dx = x2 - x1;
-    float dy = y2 - y1;
-    if (abs(dx) >abs(dy))
-    {
-        step = abs(dx);
+void Dashedline(float x1,float y1,float x2,float y2){
+   float step;
+   int count=0;
+    float dx=x2-x1;
+    float dy=y2-y1;
+
+    if(abs(dx)>=abs(dy)){
+        step=dx;
     }
     else
-        step = abs(dy);
-    float Xinc = dx / (float)step;
-    float Yinc = dy / (float)step;
-    float x = x1;
-    float y = y1;
-    displayPoint(x, y);
-    for (int i = 0; i <= step; i++)
-    {
-        if (i % 4 == 0)
-        {
-            displayPoint(x, y);
-        }
-        x = x + Xinc;
-        y = y + Yinc;
+        step=dy;
+
+    float xincr=dx/step;
+    float yincr=dy/step;
+    float x=x1;
+    float y=y1;
+    for(int i=0;i<=step;i++){
+            count++;
+    if(count<7){
+        displayPoint(x,y);
+        x=x+xincr;
+        y=y+yincr;
+    }
+
+    else if(count>=7 && count<=10){
+         x=x+xincr;
+         y=y+yincr;
+    }
+    else{
+          count=0;
+         x=x+xincr;
+         y=y+yincr;
+    }
+
     }
     glFlush();
+
 }
 
 void myMouse(int button, int state, int x, int y)
@@ -157,7 +168,7 @@ int main(int argc, char **argv)
     initialize();
     cout << "--------------------";
     cout << "\ns. Simple Line";
-    cout << "\nd. Dotted Line"; 
+    cout << "\nd. Dashed Line"; 
     cout << "\n--------------------\n";
     glutDisplayFunc(primitives);
     glutMainLoop();
