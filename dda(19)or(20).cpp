@@ -65,73 +65,6 @@ void Dottedline(float x1,float y1,float x2,float y2){
 
 }
 
-void Dashedline(float x1,float y1,float x2,float y2){
-   float step;
-   int count=0;
-    float dx=x2-x1;
-    float dy=y2-y1;
-
-    if(abs(dx)>=abs(dy)){
-        step=dx;
-    }
-    else
-        step=dy;
-
-    float xincr=dx/step;
-    float yincr=dy/step;
-    float x=x1;
-    float y=y1;
-    for(int i=0;i<=step;i++){
-            count++;
-    if(count<7){
-        displayPoint(x,y);
-        x=x+xincr;
-        y=y+yincr;
-    }
-
-    else if(count>=7 && count<=10){
-         x=x+xincr;
-         y=y+yincr;
-    }
-    else{
-          count=0;
-         x=x+xincr;
-         y=y+yincr;
-    }
-
-    }
-    glFlush();
-
-}
-
-void Solidline(float x1,float y1,float x2,float y2){
-     float step;
-    float dx=x2-x1;
-    float dy=y2-y1;
-
-    if(abs(dx)>=abs(dy)){
-        step=dx;
-    }
-    else
-        step=dy;
-
-    float xincr=dx/step;
-    float yincr=dy/step;
-    float x=x1;
-    float y=y1;
-    for(int i=0;i<=step;i++){
-        glColor3f(0,1,0);
-        glPointSize(5);
-        glBegin(GL_POINTS);
-        glVertex2i(x,y);
-        glEnd();
-        x=x+xincr;
-        y=y+yincr;
-    }
-    glFlush();
-
-}
-
 void myMouse(int button,int state,int x,int y){
   static int xst,yst,pt=0;
   if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN){
@@ -224,8 +157,6 @@ int main(int argc,char** argv){
    cout<<"\n-----------------------";
    cout<<"\n s.Simple line";
    cout<<"\n d.Dotted line";
-   cout<<"\n D. Dashed line";
-   cout<<"\n S. Simple line";
    cout<<"\n----------------------";
    glutDisplayFunc(primitives);
    glutMainLoop();
