@@ -127,7 +127,7 @@ int main(int argc,char** argv){
    initialise();
    cout<<"\n-----------------------";
    cout<<"\n c. Concentric circle";
-   cout<<"\n a.Four intersecting circle";
+   cout<<"\n a. Four intersecting circle";
    cout<<"\n----------------------";
    glutDisplayFunc(primitives);
    glutMainLoop();
